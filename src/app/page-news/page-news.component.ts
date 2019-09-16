@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService, Config } from '../news.service';
 
 @Component({
   selector: 'app-page-news',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNewsComponent implements OnInit {
 
-  constructor() { }
+  private config: Config;
+
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
+  }
+
+  showConfig() {
+    this.newsService.getNews('')
+      .subscribe((data: Config) => this.config = {
+          heroesUrl: data['heroesUrl'],
+          textfile:  data['textfile']
+      });
+
+
+      this.newsService.getNews('')
+      .subscribe((data: Config) => this.config = { ...data });
+
   }
 
 }
