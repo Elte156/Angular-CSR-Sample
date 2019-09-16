@@ -1,6 +1,47 @@
-<h1>Angular Router</h1>
-<nav>
-  <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-  <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/heroes" routerLinkActive="active">Heroes</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="news.html">News</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" onsubmit="return newsSearch(event)">
+      <input id="news--search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
 </nav>
-<router-outlet></router-outlet>
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <router-outlet></router-outlet>
+
+  </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+  <p>&copy; Company 2017-2018</p>
+</footer>
