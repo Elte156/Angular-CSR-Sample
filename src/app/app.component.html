@@ -16,8 +16,8 @@
           <a class="nav-link" routerLink="/news" routerLinkActive="active">News</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" onsubmit="return newsSearch(event)">
-      <input id="news--search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="newsSearch()">
+      <input id="news--search" class="form-control mr-sm-2" type="text" name="search" [(ngModel)]="searchValue" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
