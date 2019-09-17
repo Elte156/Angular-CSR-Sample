@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getNews(newsQuery: string): any {
+  getNews(newsQuery: string): Observable<any> {
     const params = {
       q: newsQuery,
       country: 'us',
@@ -16,23 +17,6 @@ export class NewsService {
     };
     const url = 'https://newsapi.org/v2/top-headlines';
 
-    return this.http.get<Config>(url, { params: params });
+    return this.http.get(url, { params: params });
   }
 }
-
-export interface Config {
-  heroesUrl: string;
-  textfile: string;
-}
-
-
-
-
-// //
-// fetch(req)
-//     .then(res => res.json())
-//     .then(res => {
-//       for (let index = 0; index < res.articles.length; index++) {
-//         const element = res.articles[index];
-//         const title = element.title;
-//         const publishedAt = element.publishedAt;
