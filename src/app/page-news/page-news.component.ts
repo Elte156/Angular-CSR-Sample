@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PageNewsComponent implements OnInit {
 
-  private articles: Array<object> = [];
+  articles: Array<object> = [];
 
   constructor(
     private newsService: NewsService,
