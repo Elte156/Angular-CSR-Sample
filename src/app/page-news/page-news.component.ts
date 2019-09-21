@@ -16,8 +16,16 @@ export class PageNewsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let newsQuery: string = this.route.snapshot.queryParamMap.get('search') || '';
+    this.loadNews();
+
+    this.route.queryParamMap.subscribe(queryParams => {
+      let newsQuery: string = queryParams.get('search') || '';
+      this.loadNews(newsQuery);
+    });
+  }
+
+  loadNews(newsQuery: string = "") {
     this.newsService.getNews(newsQuery)
-      .subscribe((data) => this.articles = data.articles);
+    .subscribe((data) => this.articles = data.articles);
   }
 }
